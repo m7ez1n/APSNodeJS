@@ -8,10 +8,10 @@ class InformationsSchema extends Schema {
     this.create('informations', table => {
       table.increments()
       table
-        .integer('files_id')
+        .integer('file_id')
         .unsigned()
         .references('id')
-        .inTable('files')
+        .inTable('file')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
       table

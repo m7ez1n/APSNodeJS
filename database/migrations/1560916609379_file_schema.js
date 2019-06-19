@@ -5,8 +5,22 @@ const Schema = use('Schema')
 
 class FileSchema extends Schema {
   up () {
-    this.create('files', (table) => {
+    this.create('files', table => {
       table.increments()
+      table
+        .integer('id_multas')
+        .unsigned()
+        .references('id')
+        .inTable('multas')
+        .onUpdate('CASCADE')
+        .onDelete('SET NULL')
+      table
+        .integer('information_id')
+        .unsigned()
+        .references('id')
+        .inTable('information')
+        .onUpdate('CASCADE')
+        .onDelete('SET NULL')
       table.string('file').notNullable()
       table.string('name').notNullable()
       table.string('type', 20)

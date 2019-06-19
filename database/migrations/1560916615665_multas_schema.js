@@ -8,17 +8,17 @@ class MultasSchema extends Schema {
     this.create('multas', table => {
       table.increments()
       table
-        .integer('files_id')
+        .integer('file_id')
         .unsigned()
         .references('id')
-        .inTable('files')
+        .inTable('file')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
       table
-        .integer('cars_id')
+        .integer('information_id')
         .unsigned()
         .references('id')
-        .inTable('cars')
+        .inTable('information')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
       table.string('value').notNullable()
