@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const Multa = use('App/Models/Multa')
+
 /**
  * Resourceful controller for interacting with multas
  */
@@ -18,18 +20,9 @@ class MultaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-  }
+    const multas = await Multa.all()
 
-  /**
-   * Render a form to be used for creating a new multa.
-   * GET multas/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+    return multas
   }
 
   /**
@@ -40,7 +33,12 @@ class MultaController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store ({ request, response, auth }) {
+    const data = request.only(['value', 'name', 'type', 'board'])
+
+    const multa = await Multa.create(data)
+
+    return multa
   }
 
   /**
@@ -52,20 +50,7 @@ class MultaController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
-  }
-
-  /**
-   * Render a form to update an existing multa.
-   * GET multas/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
-  }
+  async show ({ params, request, response, view }) {}
 
   /**
    * Update multa details.
@@ -75,8 +60,7 @@ class MultaController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
-  }
+  async update ({ params, request, response }) {}
 
   /**
    * Delete a multa with id.
@@ -86,8 +70,7 @@ class MultaController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
-  }
+  async destroy ({ params, request, response }) {}
 }
 
 module.exports = MultaController
