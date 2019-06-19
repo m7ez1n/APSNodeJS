@@ -50,7 +50,11 @@ class MultaController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {}
+  async show ({ params, request, response }) {
+    const multa = await Multa.findOrFail(params.id)
+
+    return multa
+  }
 
   /**
    * Update multa details.
@@ -60,7 +64,17 @@ class MultaController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {}
+  async update ({ params, request, response }) {
+    const multa = await Multa.findOrFail(params.id)
+
+    const data = request.only(['value', 'name', 'type', 'board'])
+
+    multa.merge(data)
+
+    await multa.save()
+
+    return multa
+  }
 
   /**
    * Delete a multa with id.
@@ -70,7 +84,11 @@ class MultaController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {}
+  async destroy ({ params, request, response }) {
+    const multa = await Multa.findOrFail(params.id)
+
+    await multa.delete()
+  }
 }
 
 module.exports = MultaController
