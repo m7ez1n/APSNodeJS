@@ -1,28 +1,17 @@
-# Adonis API application
+# API da APS feita em NodeJS
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+#### Bom nessa API não me preocupei em fazer validações nem paginações, foi feita só pra brincar com o nodeJS mesmo. O objetivo da APS era fazer um sistema que pudesse cadastrar carros / multas e fazer o upload de imagens, como eu disse foi uma API bem simples mesmo. :stuck_out_tongue_winking_eye:
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+## Qualquer contribuição é bem vinda, e eu agradeço :heart_eyes: :heartbeat:
 
-## Setup
+### Acessem a He4rtDevs: :exclamation: :purple_heart:
 
-Use the adonis command to install the blueprint
+[He4rt](discord.io/He4rt)
 
-```bash
-adonis new yardstick --api-only
-```
+[Twitter](https://twitter.com/He4rtDevs)
 
-or manually clone the repo and then run `npm install`.
+[Discord He4rt](discord.io/He4rt)
 
+[Twitter He4rt](https://twitter.com/He4rtDevs)
 
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
+[MyTwitter](https://twitter.com/m7Aei_He4rt)
