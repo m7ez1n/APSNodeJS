@@ -7,13 +7,6 @@ class InformationsSchema extends Schema {
   up () {
     this.create('informations', table => {
       table.increments()
-      table
-        .integer('file_id')
-        .unsigned()
-        .references('id')
-        .inTable('files')
-        .onUpdate('CASCADE')
-        .onDelete('CASCADE')
       table.string('model').notNullable()
       table.string('owner').notNullable()
       table.string('color').notNullable()
